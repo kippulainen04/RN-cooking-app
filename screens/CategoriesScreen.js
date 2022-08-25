@@ -6,11 +6,12 @@ import { CATEGORIES } from "../data/dummy-data"
 
 
 const CategoriesScreen = ({ navigation }) => {
-    const pressHandler = () => {
-        navigation.navigate('Meals Overview')
-    }
-
     const renderCategoryItem = (itemData) => {
+        const pressHandler = () => {
+            navigation.navigate('Meals Overview', {
+                categoryId: itemData.item.id,
+            } )
+        }
         return (
         <CategoryGridTile title={itemData.item.title} color={itemData.item.color} onPress={pressHandler}/>
         )
